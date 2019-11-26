@@ -2,24 +2,54 @@ import asyncio
 from aiohttp import ClientSession
 
 
-async def hello(url_to_fetch):
+# tuto from https://pawelmhm.github.io/asyncio/python/aiohttp/2016/04/22/asyncio-aiohttp.html
+from enum.urls import reddit_news
+
+
+async def fetch(url, session):
+    async with session.get(url) as response:
+        return await response.read()
+
+
+async def run(urls):
+    tasks = []
+
+    # Fetch all responses within one Client session,
+    # keep connection alive for all requests.
     async with ClientSession() as session:
-        async with session.get(url_to_fetch) as response:
+        for url in urls:
+            task = asyncio.ensure_future(fetch(url, session))
+            tasks.append(task)
 
-            response = await response.read()
+        responses = await asyncio.gather(*tasks)
+        # you now have all response bodies in this variable
+        return responses
 
-            print("response : " + response.decode())
+
+def fetch_cat(category_key):
+    loop = asyncio.get_event_loop()
+
+    urls = ["https://www.reddit.com/r/worldnews/top.json?limit=1", "https://www.reddit.com/r/news/top.json?limit=1"]
+
+    #todo : select good category
+    for key in reddit_news:
+        print(key, '->', reddit_news[key])
+
+    # run fetches
+    future = asyncio.ensure_future(run(urls))
+
+    responses = loop.run_until_complete(future)
+
+    return responses
+
 
 
 if __name__ == '__main__':
-    loop = asyncio.get_event_loop()
+    loop_test = asyncio.get_event_loop()
 
-    url = "https://www.reddit.com/r/worldnews/top.json?limit=1"
+    urls_test = ["https://www.reddit.com/r/worldnews/top.json?limit=1", "https://www.reddit.com/r/news/top.json?limit=1"]
+    # run fetches
+    future_test = asyncio.ensure_future(run(urls_test))
+    responses_test = loop_test.run_until_complete(future_test)
 
-    print('starting loop ...')
-
-    loop.run_until_complete(hello(url))
-
-    print('after loop.')
-
-
+    print(responses_test)

@@ -2,10 +2,15 @@
 
 class SubModel:
     # @contract(title=str, ulr=str, score='str|None')
-    def __init__(self, title, url, score):
+    def __init__(self, title, url, score, popularity, subreddit, subreddit_subscribers):
         self._title = title
         self._url = url
         self._score = score
+        self._popularity = popularity
+        self._subreddit = subreddit
+        self._subreddit_subscribers = subreddit_subscribers
+
+    # TODO : add getter and setters
 
     @property
     def title(self):

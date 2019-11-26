@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "sharp-bulwark-260112",
+  "private_key_id": "256caa671159e3b228ebc66ac0f6e75777bbd3f0",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCmFoAvp9oPEdGs\nrT2srIePMjK41OlM8oYfgZeRWBwrTaW2G7UGxCgIF9a1NjZU4lKLp4101RfkXvd4\n5yM+wa9xgDtr1JDJLp7Gi//anO1eCv2t8cBo1Cn/jCccW1k+5x6hLy+7NZZQni4S\nbtYfuctL/cM25UP6YEwRfbKTVLQg+iU1CzU8xHDUxPuaj9YHHBAJnTcbOsi9RPIZ\noh1NuVm4oN0LSBY0+/WN8K6no2SjWkdRkb/9lZ2rIzO0+FTgoxKe3YRjs+nrFXEC\nrxGY0/Kpm/2Fv1yiQagnfx9BlxpBIfOVfC7MunXar/X/X3w7ml8BrL/OGRDs0wrs\nif24brKtAgMBAAECggEAG7SGqwxsqVVfXNbkQhzgmxA0WlU32qxdF73aHvZr8oRI\nF4XtL2UCyYDSgdV6gDPlsaKgS+QtEV0PGoWyASq1fbE2mFDz2v9yIGwjoJ/LT8P1\nF7JLVqFHpTeHoakSTNYoa5pPs8KnYajVRiFjihTH1xQMX6ika4xrPAK0CnQXfSV/\n76Y8I2VkSIgWlYEQKUHtHt+2deEZb7rxbOmqh8O2/k8E3VMhaC/mUv9/HZHXYXtT\n605dDSke8o6sHHctulSj/Xd6nBUHuYdFTD6j/RJ+KoBQoy0OAo4Zavq8qemBsyCY\n8358UArUttAKlm11d+ECoMUnHKW2cQw4i3LlnMv9qQKBgQDkQ1ohmKgaDw2b3njX\ni1G5MSeUX+UoODcoCNVKiGN7lKxa4wB71EZ9rRHDyPqVXdFukLRpJ2XBdz5qr2CP\nEb8DNKCbY/fF/v0Q7y5lmpieQJ+fauSBjgHQFIlvzWlvrJCzbtHEHdkXe7AAOFat\nR4n/W44hp/RAEmO1SD5MZvYQJQKBgQC6RQvUCByynYwqvu/4wacffJfFDxJ1tjD5\nunWqsEEhwCDbKDolAqpAVHYHv0aeH6Kbj84pmbPpZNyRW0TKSVRZRQF1ZNWX3TO/\neHvcLKIE6mBrTPHzxoskUtxnRf8EYxeUgis+aChkYUnpw+s6uNTOfIrFkH17Z5Cp\nGggZIf2t6QKBgQCBkd3Krk3VpO/Tp4Au0e2M0uMlrR12LBrbBdCU40CdOLJxUOPI\nZqGw2xn3adEcEko8mbVe7zcqj5aFlpGYBLnJhwkXy7Is2OYrw6kxkYTKZ+Jz6ohV\nJhfPVqkBJreP5YOp5uD5kvvVAafRKCnDaJVjt0PBxQW3jPi+QYjjc5p/ZQKBgFK/\nfaOx/t2yc6RBsmV10gKA3QNj0LWOPG+UT9WF+0k9CtuRIVNzvaJaYxzJ8lsofppQ\n5itA5tXWQs4oF4Ut0lTd/Onj46dVUznKEmwbP9ajMDY6tnmvR/zY+qS+Sa3vP3hv\n4zoUF22Qcr9wk71AgvlABn4B1FzQA0m8EMDpgsKRAoGAWgSRMz+NQNN0HzMAjXAy\n8CjpP0RfB95smwyuGdjah42K+BPYM4VEGUAEbnbGytPILVzRAXZLKgYJYgQ08R/U\nzWY13pdy8o8N3QWnUKwUR+FUmoPgqw+ZjVAxGInUT9ae7U0qK5+I3GipX6mIoMkC\nqqV8kOOH5mCnxTC+szWbWy8=\n-----END PRIVATE KEY-----\n",
+  "client_email": "api-cloudnews@sharp-bulwark-260112.iam.gserviceaccount.com",
+  "client_id": "107999678679537896036",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/api-cloudnews%40sharp-bulwark-260112.iam.gserviceaccount.com"
+}
