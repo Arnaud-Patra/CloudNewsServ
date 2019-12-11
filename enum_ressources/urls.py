@@ -1,8 +1,3 @@
-categories = {
-    "REDDIT_NEWS": "reddit_news",
-    "TECH": "reddit_tech",
-    "FRANCE": "newsapi_org"
-}
 
 reddit_news = {
     "RWORLDNEWS": "https://www.reddit.com/r/worldnews/",
@@ -57,4 +52,10 @@ newsapi_org = {
     "FRANCE": 'https://newsapi.org/v2/top-headlines?' +
               'country=fr&' +
               'apiKey=a2ad5ebfec7e4f7da1a7cb9b455d49ab'
+}
+
+categories = {
+    "REDDIT_NEWS": reddit_news,
+    "TECH": reddit_tech,
+    "FRANCE": newsapi_org
 }

@@ -1,5 +1,4 @@
 
-
 class SubModel:
     # @contract(title=str, ulr=str, score='str|None')
     def __init__(self, title, url, score, popularity, subreddit, subreddit_subscribers):
@@ -35,3 +34,6 @@ class SubModel:
     @score.setter
     def score(self, score):
         self._score = score
+
+    def to_model(self, responses_raw):
+        pass
