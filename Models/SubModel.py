@@ -1,13 +1,40 @@
+def newsapi_org_to_model(responses_json_list):
+    model_list = []
+    for responses_json in responses_json_list:
+        for article in responses_json['articles']:
+            model = SubModel(title=article['title'], url=article['url'], source=article['source'],
+                             description=article['description'])
+
+            model_list.append(model)
+
+    return model_list
+
+
+def reddit_to_model(responses_json_list):
+    model_list = []
+    for subreddit in responses_json_list:
+        for sub in subreddit['data']['children']:
+            sub_data = sub['data']
+            model = SubModel(title=sub_data['title'], url=sub_data['url'], source=sub_data['source'],
+                             description=sub_data['description'])
+
+            model_list.append(model)
+
+    return model_list
+
 
 class SubModel:
     # @contract(title=str, ulr=str, score='str|None')
-    def __init__(self, title, url, score, popularity, subreddit, subreddit_subscribers):
+    def __init__(self, title, url, score=None, popularity=None, source=None, subreddit=None, subreddit_subscribers=None,
+                 description=None):
         self._title = title
         self._url = url
         self._score = score
         self._popularity = popularity
+        self._source = source
         self._subreddit = subreddit
         self._subreddit_subscribers = subreddit_subscribers
+        self._description = description
 
     # TODO : add getter and setters
 
@@ -35,5 +62,18 @@ class SubModel:
     def score(self, score):
         self._score = score
 
-    def to_model(self, responses_raw):
-        pass
+    @property
+    def source(self):
+        return self._source
+
+    @source.setter
+    def source(self, source):
+        self._source = source
+
+    @property
+    def description(self):
+        return self._description
+
+    @description.setter
+    def description(self, description):
+        self._description = description
