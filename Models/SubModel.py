@@ -15,12 +15,17 @@ def reddit_to_model(responses_json_list):
     for subreddit in responses_json_list:
         for sub in subreddit['data']['children']:
             sub_data = sub['data']
-            model = SubModel(title=sub_data['title'], url=sub_data['url'], source=sub_data['source'],
-                             description=sub_data['description'])
+            model = SubModel(title=sub_data['title'], url=sub_data['url'], subreddit=sub_data['subreddit'],
+                             subreddit_subscribers=sub_data['subreddit_subscribers'])
 
             model_list.append(model)
 
     return model_list
+
+
+def popularity_calculator(articles):
+    for article in articles:
+        article.popularity = 1000 * article.score / article.subreddit_subscribers
 
 
 class SubModel:

@@ -4,7 +4,7 @@ import requests
 
 from aiohttp import ClientSession
 
-from Models.SubModel import newsapi_org_to_model, reddit_to_model
+from Models.SubModel import newsapi_org_to_model, reddit_to_model, popularity_calculator
 from enum_ressources.urls import reddit_news, categories
 
 
@@ -60,29 +60,41 @@ def fetch_cat(category_keys):
     return responses
 
 
+def main(category_keys):
+    respsonses = fetch_cat(category_keys)
+
+    # decode response to json
+    respsonses[:] = [i.decode("utf-8") for i in respsonses]
+    json_response = [json.loads(resp) for resp in respsonses]
+
+    # Parse response.
+    if category_keys == ['FRANCE']:
+        articles = newsapi_org_to_model(json_response)
+    else:
+        articles = reddit_to_model(json_response)
+        popularity_calculator(articles)
+
+    return articles
+
+
 if __name__ == '__main__':
-    loop_test = asyncio.get_event_loop()
+    # loop_test = asyncio.get_event_loop() #useless?
 
     # urls_test = ["https://www.reddit.com/r/worldnews/top.json?limit=1", "https://www.reddit.com/r/news/top.json?limit=1"]
 
     # category_keys = ['FRANCE']
-    category_keys = ['REDDIT_NEWS']
+    category_keys_test = ['REDDIT_NEWS']
 
-    responses_test = fetch_cat(category_keys)
+    responses_test = fetch_cat(category_keys_test)
 
     # decode response to json
     responses_test[:] = [i.decode("utf-8") for i in responses_test]
     json_response = [json.loads(resp) for resp in responses_test]
 
-    print(">>> response :")
-    print(json_response)
-
     # Parse response.
-    if category_keys == ['FRANCE']:
-        newsapi_org_to_model(json_response)
+    if category_keys_test == ['FRANCE']:
+        articles_modeled_test = newsapi_org_to_model(json_response)
     else:
-        reddit_to_model(json_response)
+        articles_modeled_test = reddit_to_model(json_response)
 
-    # # run fetches
-    # future_test = asyncio.ensure_future(run(urls_test))
-    # responses_test = loop_test.run_until_complete(future_test)
+
