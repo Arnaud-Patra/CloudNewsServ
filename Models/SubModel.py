@@ -15,7 +15,7 @@ def reddit_to_model(responses_json_list):
     for subreddit in responses_json_list:
         for sub in subreddit['data']['children']:
             sub_data = sub['data']
-            model = SubModel(title=sub_data['title'], url=sub_data['url'], subreddit=sub_data['subreddit'],
+            model = SubModel(title=sub_data['title'], url=sub_data['url'], score=sub_data['score'],subreddit=sub_data['subreddit'],
                              subreddit_subscribers=sub_data['subreddit_subscribers'])
 
             model_list.append(model)
@@ -82,3 +82,27 @@ class SubModel:
     @description.setter
     def description(self, description):
         self._description = description
+
+    @property
+    def popularity(self):
+        return self._popularity
+
+    @popularity.setter
+    def popularity(self, popularity):
+        self._popularity = popularity
+
+    @property
+    def subreddit(self):
+        return self._subreddit
+
+    @subreddit.setter
+    def subreddit(self, subreddit):
+        self._subreddit = subreddit
+
+    @property
+    def subreddit_subscribers(self):
+        return self._subreddit_subscribers
+
+    @subreddit_subscribers.setter
+    def subreddit_subscribers(self, subreddit_subscribers):
+        self._subreddit_subscribers = subreddit_subscribers

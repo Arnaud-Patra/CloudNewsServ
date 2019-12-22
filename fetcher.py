@@ -31,7 +31,10 @@ async def run(urls):
 
 
 def fetch_cat(category_keys):
-    loop = asyncio.get_event_loop()
+    loop = asyncio.new_event_loop()
+    asyncio.set_event_loop(loop)
+
+    # loop = asyncio.get_event_loop()  # crash here
 
     # urls = ["https://www.reddit.com/r/worldnews/top.json?limit=1", "https://www.reddit.com/r/news/top.json?limit=1"]
 
@@ -60,6 +63,21 @@ def fetch_cat(category_keys):
     return responses
 
 
+def serialise_submodel(submodel):
+    dictionnairy = {
+        'title': submodel.title,
+        'url': submodel.url,
+        'score': submodel.score,
+        'subreddit': submodel.subreddit,
+        'subreddit_subscribers': submodel.subreddit_subscribers,
+        'popularity': submodel.popularity,
+        'source': submodel.source,
+        'description': submodel.description,
+    }
+
+    return dictionnairy
+
+
 def main(category_keys):
     respsonses = fetch_cat(category_keys)
 
@@ -74,7 +92,13 @@ def main(category_keys):
         articles = reddit_to_model(json_response)
         popularity_calculator(articles)
 
-    return articles
+    #todo : parse articles from [dict,dict,dict] to dict{dict, dict...}
+
+    art_dict = {'articles': []}
+    for article in articles:
+        art_dict['articles'].append(serialise_submodel(article))
+
+    return art_dict
 
 
 if __name__ == '__main__':
