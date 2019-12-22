@@ -1,14 +1,14 @@
-from flask import Flask
+import logging
 
-from google.cloud import vision
+from flask import Flask
 
 from fetcher import main
 
-vision_client = vision.Client()
+
+# !! deploy : gcloud app deploy
 
 # flask used as a API
 app = Flask(__name__)
-
 
 @app.route('/get_france')
 def get_france():
@@ -26,6 +26,10 @@ def get_tech():
 def get_reddit_news():
     articles = main(['REDDIT_NEWS'])
     return articles
+
+@app.route('/helloworld')
+def helloworld():
+    return "hello"
 
 
 if __name__ == '__main__':
