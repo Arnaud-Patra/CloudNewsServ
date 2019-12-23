@@ -98,7 +98,7 @@ def main(category_keys):
     for article in articles:
         art_dict['articles'].append(serialise_submodel(article))
 
-    return art_dict
+    return json.dumps(art_dict)
 
 
 if __name__ == '__main__':
